@@ -311,4 +311,48 @@ footer { padding: 3rem 5%; text-align: center; background: #000; font-size: 0.9r
     font-size: 0.8rem;
     pointer-events: none; /* Não atrapalha o clique */
     z-index: 10;
+
+}
+
+/* --- AJUSTES FINAIS PARA DESKTOP --- */
+@media (min-width: 768px) {
+    
+    /* 1. Controla o Card Informativo (Slider) para não ficar gigante */
+    .info-card {
+        grid-column: 1 / -1; /* Faz ele ocupar a linha inteira no topo */
+        max-width: 800px;    /* Largura máxima permitida */
+        height: 450px;       /* Altura fixa para não esticar verticalmente */
+        margin: 0 auto 40px auto; /* Centraliza e dá espaço embaixo */
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* Garante que a imagem dentro do slider fique bonita sem cortar */
+    .info-slider img {
+        object-fit: contain; /* Mostra a imagem inteira (bom para textos/infográficos) */
+        background-color: #1a0505; /* Fundo escuro sutil para preencher laterais se sobrar */
+    }
+
+    /* 2. Organiza a Grade de Produtos */
+    .products-grid {
+        display: grid;
+        /* Cria colunas que não ficam nem muito pequenas, nem gigantes */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px; /* Limita a largura total da loja na tela */
+        margin: 0 auto;    /* Centraliza a grade na tela */
+        padding: 0 20px;
+    }
+
+    /* 3. Ajusta o tamanho da garrafa dentro do card */
+    .product-card {
+        max-width: 300px; /* Trava a largura máxima do cartão do vinho */
+        margin: 0 auto;   /* Centraliza se a coluna for maior */
+    }
+
+    .product-card .card-front img {
+        height: 300px; /* Altura padrão para as garrafas */
+        object-fit: contain;
+        padding: 15px;
+    }
 }
