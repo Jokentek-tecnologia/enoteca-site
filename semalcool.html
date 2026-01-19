@@ -1,15 +1,30 @@
-<main>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No & Low Álcool - Enoteca Mare Monti</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="liquid-background"></div>
+    <header><nav class="navbar"><a href="index.html" class="logo">Enoteca Mare Monti</a><ul class="nav-links"><li><a href="index.html#inicio" data-key="navAnoteca">A Enoteca</a></li><li><a href="index.html#categorias-grid" data-key="navCarta">Nossa Carta</a></li><li><a href="index.html#blog" data-key="navBlog">Diário do Enólogo</a></li><li><a href="index.html#quemsomos" data-key="navQuemSomos">Quem Somos</a></li><li><a href="index.html#contato" data-key="navContato">Fale com o Sommelier</a></li></ul><div class="nav-icons"><div class="language-switcher"><img src="https://flagcdn.com/w20/br.png" data-lang="pt-br" class="active-lang"><img src="https://flagcdn.com/w20/pt.png" data-lang="pt-pt"><img src="https://flagcdn.com/w20/gb.png" data-lang="en"><img src="https://flagcdn.com/w20/it.png" data-lang="it"><img src="https://flagcdn.com/w20/es.png" data-lang="es"></div><div id="cart-icon">🛒<span id="cart-count">0</span></div></div></nav></header>
+    <main>
         <section class="section">
-            <h2 data-key="tintosTitle">No e Low Álcool</h2> 
-            
+            <h2 data-key="semalcoolTitle">No & Low Álcool</h2>
             <div class="products-grid" id="grid-dinamica">
-                
                 <div class="info-card hidden">
-                    <div class="info-slider">
-                        </div>
+                    <div class="info-slider"></div>
                     <div class="slider-hint">Deslize ⮕</div>
                 </div>
-
-                </div>
+            </div>
         </section>
     </main>
+    <footer><p data-key="footerText">&copy; 2025 Enoteca Mare Monti. Um projeto Jokentek.</p></footer>
+    <div id="cart-overlay"></div><div id="cart-sidebar"><div class="cart-header"><h3 data-key="cartTitle">Sua Cesta</h3><button id="close-cart">&times;</button></div><div id="cart-items"></div><div class="cart-footer"><div class="cart-total"><span data-key="cartTotal">Total:</span><span id="cart-total-price">R$ 0,00</span></div><button id="checkout-button" class="cta-button" data-key="cartCheckout">Finalizar Compra</button></div></div>
+    <div id="checkout-modal-overlay"></div><div id="checkout-modal"><div class="modal-header"><h3>Finalizar Pedido via WhatsApp</h3><button id="close-modal">&times;</button></div><form id="checkout-form"><p>Preencha para enviar ao WhatsApp.</p><input type="text" id="checkout-name" placeholder="Nome" required><input type="text" id="checkout-address" placeholder="Endereço" required><textarea id="checkout-obs" placeholder="Observações"></textarea><button type="submit" class="cta-button">Enviar Pedido</button></form></div>
+    <script src="script.js"></script>
+</body>
+</html>
