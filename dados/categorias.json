@@ -1,0 +1,11 @@
+{
+  "configs": [
+    {
+      "id": "tinto",
+      "imagens": [
+        "assets/img/IMG-20251215-WA0011.jpg",
+        "assets/img/IMG-20251215-WA0013.jpg"
+      ]
+    }
+  ]
+}
