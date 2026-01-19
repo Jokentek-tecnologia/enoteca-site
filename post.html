@@ -26,18 +26,18 @@
     </header>
 
     <main>
-        <section class="section" style="padding-top: 100px;">
+        <section class="section" style="padding-top: 120px; min-height: 80vh;">
             <div class="about-content" style="display: block; max-width: 800px; margin: 0 auto; text-align: left;">
                 
-                <img id="post-img" src="" alt="Imagem do Post" style="width: 100%; height: 400px; object-fit: cover; border-radius: 10px; margin-bottom: 2rem; display: none;">
+                <img id="post-img" src="" alt="Imagem do Post" style="width: 100%; height: 400px; object-fit: cover; border-radius: 10px; margin-bottom: 2rem; display: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
                 
-                <h1 id="post-title" style="font-family: var(--font-title); font-size: 3rem; margin-bottom: 1rem;">Carregando...</h1>
+                <h1 id="post-title" style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1.1;">Carregando...</h1>
+                <p id="post-date" style="color: #d4a373; font-style: italic; margin-bottom: 2rem; font-size: 0.9rem;"></p>
                 
-                <p id="post-date" style="color: var(--accent-color); font-style: italic; margin-bottom: 2rem;"></p>
-                
-                <div id="post-body" style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color);"></div>
+                <div id="post-body" class="about-text" style="font-size: 1.2rem; line-height: 1.8; color: #eaeaea; text-align: justify;">
+                    </div>
 
-                <div style="margin-top: 3rem; text-align: center;">
+                <div style="margin-top: 4rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
                     <a href="index.html#blog" class="cta-button">← Voltar para o Diário</a>
                 </div>
 
@@ -46,50 +46,57 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Enoteca Mare Monti.</p>
+        <p>&copy; 2025 Enoteca Mare Monti. Onde os terroirs se encontram.</p>
     </footer>
 
     <script>
-        // Script para carregar o post correto
         async function loadPost() {
-            // Pega o ?id=... da URL
             const params = new URLSearchParams(window.location.search);
             const slug = params.get('id');
 
             if (!slug) {
-                document.getElementById('post-body').innerHTML = '<p>Post não encontrado.</p>';
+                document.getElementById('post-body').innerHTML = '<p>Artigo não encontrado.</p>';
                 return;
             }
 
             try {
-                // Busca o arquivo JSON
-                const response = await fetch('dados/blog.json');
+                // Adiciona um timestamp para evitar cache antigo
+                const response = await fetch('dados/blog.json?t=' + new Date().getTime());
                 const data = await response.json();
-                
-                // Encontra o artigo com o slug certo
                 const artigo = data.artigos.find(post => post.slug === slug);
 
                 if (artigo) {
+                    // Preenche Título e Página
                     document.title = artigo.titulo + " - Enoteca Mare Monti";
                     document.getElementById('post-title').innerText = artigo.titulo;
                     
-                    // Formata a data
+                    // Preenche Data
                     const dataObj = new Date(artigo.data);
                     document.getElementById('post-date').innerText = dataObj.toLocaleDateString('pt-BR');
 
-                    // Mostra imagem se tiver
+                    // Preenche Imagem
                     if (artigo.imagem) {
                         const imgEl = document.getElementById('post-img');
-                        imgEl.src = artigo.imagem;
+                        // Remove a barra inicial se houver, para evitar erro de caminho
+                        let imgSrc = artigo.imagem.startsWith('/') ? artigo.imagem.substring(1) : artigo.imagem;
+                        imgEl.src = imgSrc;
                         imgEl.style.display = 'block';
                     }
 
-                    // Converte o texto (Markdown) para HTML
-                    // Se o cliente usar negrito/itálico no CMS, isso faz aparecer certo
-                    document.getElementById('post-body').innerHTML = marked.parse(artigo.conteudo);
+                    // Preenche o Texto (Com proteção contra falha)
+                    const bodyEl = document.getElementById('post-body');
+                    if (typeof marked !== 'undefined') {
+                        // Se a biblioteca carregou, usa Markdown (bonito)
+                        bodyEl.innerHTML = marked.parse(artigo.conteudo);
+                    } else {
+                        // Se a biblioteca falhou, mostra texto puro quebrando linhas
+                        console.warn('Biblioteca Marked não carregou, usando texto simples.');
+                        bodyEl.innerHTML = artigo.conteudo.replace(/\n/g, '<br>');
+                    }
+                    
                 } else {
                     document.getElementById('post-title').innerText = "Post não encontrado";
-                    document.getElementById('post-body').innerText = "O artigo que você procura não existe ou foi removido.";
+                    document.getElementById('post-body').innerText = "O artigo que você procura não existe.";
                 }
 
             } catch (error) {
