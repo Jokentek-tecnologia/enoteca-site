@@ -5,16 +5,13 @@ backend:
 media_folder: "assets/img"
 public_folder: "assets/img"
 
-# Permite rodar no servidor local para teste (opcional)
-local_backend: true
-
 collections:
   - name: "adega"
     label: "Gerenciar Adega"
     files:
       - name: "estoque"
         label: "Todos os Vinhos"
-        file: "dados/estoque.json" # O arquivo único que guarda tudo
+        file: "dados/estoque.json"
         fields:
           - name: "produtos"
             label: "Lista de Produtos"
@@ -24,11 +21,8 @@ collections:
               - {label: "Nome do Vinho", name: "nome", widget: "string"}
               - {label: "Categoria", name: "categoria", widget: "select", options: ["tinto", "branco", "rose", "espumantes", "laranja", "importados", "semalcool", "cooler"]}
               - {label: "Preço (Use ponto: 109.50)", name: "preco", widget: "number", value_type: "float"}
-              - {label: "Imagem", name: "imagem", widget: "image"}
-
+              - {label: "Imagem da Garrafa", name: "imagem", widget: "image"}
               - {label: "Descrição Curta", name: "descricao", widget: "text"}
-
-# ... (abaixo da coleção "adega") ...
 
   - name: "blog"
     label: "Blog / Notícias"
@@ -44,6 +38,20 @@ collections:
               - {label: "Título", name: "titulo", widget: "string"}
               - {label: "Data", name: "data", widget: "datetime"}
               - {label: "Imagem de Capa", name: "imagem", widget: "image"}
-              - {label: "Resumo (para a Home)", name: "resumo", widget: "text"}
-              - {label: "Conteúdo Completo", name: "conteudo", widget: "markdown"}
-              - {label: "Slug (URL única, ex: harmonizacao-queijos)", name: "slug", widget: "string"}
+              - {label: "Resumo", name: "resumo", widget: "text"}
+              - {label: "Conteúdo", name: "conteudo", widget: "markdown"}
+              - {label: "Slug (URL)", name: "slug", widget: "string"}
+
+  - name: "visuais"
+    label: "Imagens das Categorias"
+    files:
+      - name: "banners"
+        label: "Cards Informativos"
+        file: "dados/categorias.json"
+        fields:
+          - name: "configs"
+            label: "Configurar Categorias"
+            widget: "list"
+            fields:
+              - {label: "Categoria", name: "id", widget: "select", options: ["tinto", "branco", "rose", "espumantes", "laranja", "importados", "semalcool", "cooler"]}
+              - {label: "Imagens do Card (Carrossel)", name: "imagens", widget: "list", field: {label: "Imagem", name: "url", widget: "image"}}
