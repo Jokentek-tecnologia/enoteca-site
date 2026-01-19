@@ -314,66 +314,70 @@ footer { padding: 3rem 5%; text-align: center; background: #000; font-size: 0.9r
 
 }
 
-/* --- CORREÇÃO FINAL PARA DESKTOP (SEM QUADROS, SEM SUMIR PRODUTOS) --- */
+/* --- CORREÇÃO FINAL PARA DESKTOP (V3) --- */
 @media (min-width: 768px) {
 
-    /* 1. O Container Principal */
+    /* 1. O Container Principal (Arruma a estrutura da página) */
     .products-grid {
-        /* Usamos Flexbox para garantir que nada suma. O que não cabe, desce. */
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; /* Centraliza tudo */
-        gap: 30px; /* Espaço entre os itens */
+        justify-content: center;
+        gap: 30px;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
     }
 
-    /* 2. O Card de Informação (Slider) */
+    /* 2. O Card de Informação (Tira o fundo e ajusta o espaço) */
     .info-card {
-        /* Força ele a ocupar a largura total da linha (100%) */
-        flex: 0 0 100%;
+        flex: 0 0 100%; /* Ocupa a linha toda */
         width: 100%;
-        
-        /* Removemos a altura fixa e o fundo para tirar o "quadro feio" */
         height: auto; 
-        background-color: transparent; 
-        box-shadow: none; /* Remove a sombra se preferir um visual limpo */
+        background-color: transparent; /* Sem fundo de quadro */
+        box-shadow: none;
         border: none;
-        
         margin-bottom: 40px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .info-slider {
-        /* Centraliza o conteúdo do slider */
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    /* 3. A Imagem dentro do Slider */
-    .info-slider img {
-        /* Limita a altura para não ficar gigante, mas mantém a proporção */
-        height: auto;
-        max-height: 500px; /* Altura máxima permitida no PC */
-        width: auto;       /* Largura se ajusta sozinha */
-        max-width: 100%;   /* Não deixa estourar a tela */
         
-        object-fit: contain; /* Garante que a imagem apareça inteira */
-        border-radius: 10px; /* Borda levemente arredondada na imagem */
+        display: flex;
+        justify-content: center;
     }
 
-    /* 4. Os Cards de Vinho (Produtos) */
+    /* 3. O Slider vira uma galeria lado a lado */
+    .info-slider {
+        display: flex;
+        justify-content: center; /* Centraliza as imagens */
+        align-items: center;     /* Alinha verticalmente */
+        width: 100%;
+        gap: 20px;               /* Espaço entre as duas imagens */
+    }
+
+    /* 4. A CORREÇÃO MÁGICA NAS IMAGENS */
+    .info-slider img {
+        /* AQUI ESTAVA O ERRO: Resetamos o 'flex' do celular */
+        flex: 0 1 auto;          /* Permite que a imagem diminua para caber */
+        width: auto;             /* Largura natural */
+        
+        /* Define limites para elas ficarem elegantes lado a lado */
+        max-width: 45%;          /* Cada uma ocupa no máximo 45% da tela */
+        max-height: 500px;       /* Altura máxima para não estourar */
+        
+        object-fit: contain;     /* Mostra a imagem inteira sem cortes */
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra suave só na imagem */
+    }
+
+    /* 5. Esconde a dica "Deslize" no computador (já que não precisa deslizar) */
+    .slider-hint {
+        display: none;
+    }
+
+    /* 6. Os Cards de Vinho (Produtos) */
     .product-card {
-        /* Define um tamanho fixo e elegante para os vinhos */
-        flex: 0 0 300px; /* Largura fixa de 300px */
+        flex: 0 0 300px;
         width: 300px;
-        margin: 0; /* Remove margens automáticas que atrapalham */
+        margin: 0;
     }
 
-    /* Garante que a imagem do vinho fique bonita */
     .product-card .card-front img {
         height: 350px;
         object-fit: contain;
