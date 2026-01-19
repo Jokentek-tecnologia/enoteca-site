@@ -25,4 +25,25 @@ collections:
               - {label: "Categoria", name: "categoria", widget: "select", options: ["tinto", "branco", "rose", "espumantes", "laranja", "importados", "semalcool", "cooler"]}
               - {label: "Preço (Use ponto: 109.50)", name: "preco", widget: "number", value_type: "float"}
               - {label: "Imagem", name: "imagem", widget: "image"}
+
               - {label: "Descrição Curta", name: "descricao", widget: "text"}
+
+# ... (abaixo da coleção "adega") ...
+
+  - name: "blog"
+    label: "Blog / Notícias"
+    files:
+      - name: "posts"
+        label: "Todos os Posts"
+        file: "dados/blog.json"
+        fields:
+          - name: "artigos"
+            label: "Artigos"
+            widget: "list"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string"}
+              - {label: "Data", name: "data", widget: "datetime"}
+              - {label: "Imagem de Capa", name: "imagem", widget: "image"}
+              - {label: "Resumo (para a Home)", name: "resumo", widget: "text"}
+              - {label: "Conteúdo Completo", name: "conteudo", widget: "markdown"}
+              - {label: "Slug (URL única, ex: harmonizacao-queijos)", name: "slug", widget: "string"}
