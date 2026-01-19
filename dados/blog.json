@@ -1,0 +1,28 @@
+{
+  "artigos": [
+    {
+      "titulo": "A Arte da Harmonização",
+      "data": "2025-01-10T12:00:00.000Z",
+      "imagem": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400",
+      "resumo": "Descubra como combinar vinhos e pratos de forma memorável.",
+      "conteudo": "A harmonização, ou enogastronomia, é a arte de combinar vinhos e alimentos para que um realce o sabor do outro. A regra clássica \"tinto com carne, branco com peixe\" é um bom ponto de partida, mas o universo de possibilidades é muito maior.\n\nPense em equilíbrio: pratos leves pedem vinhos leves; pratos intensos pedem vinhos encorpados. Um peixe grelhado com nosso **Brisa Marinha** é um exemplo de harmonização por similaridade, onde a acidez do vinho complementa a leveza do prato. Já um queijo gorgonzola com um vinho doce é uma harmonização por contraste, onde o doce equilibra o salgado intenso do queijo.\n\nNão tenha medo de experimentar. A melhor harmonização é aquela que agrada o seu paladar. E se precisar de ajuda, nosso Sommelier de IA está sempre a postos!",
+      "slug": "a-arte-da-harmonizacao"
+    },
+    {
+      "titulo": "O que é Terroir?",
+      "data": "2025-01-15T12:00:00.000Z",
+      "imagem": "https://images.unsplash.com/photo-1510812431410-150b04a55b40?w=400",
+      "resumo": "Entenda como o clima e solo criam vinhos únicos.",
+      "conteudo": "Terroir é uma palavra francesa sem tradução literal, mas que representa a alma de um vinho. É a combinação única de fatores naturais que influenciam o vinhedo: o clima (sol, chuva, vento), o solo (mineralidade, drenagem), a topografia (altitude, inclinação do terreno) e a biodiversidade local.\n\nÉ por causa do terroir que uma mesma uva, como a Chardonnay, pode resultar em um vinho leve e mineral em uma região costeira (Mare) e em um vinho encorpado e amanteigado em uma região continental de altitude (Monti). O conceito da Enoteca Mare Monti é uma celebração direta do terroir, trazendo rótulos que são a mais pura expressão de seu local de origem.",
+      "slug": "o-que-e-terroir"
+    },
+    {
+      "titulo": "O Papel do Carvalho",
+      "data": "2025-01-18T12:00:00.000Z",
+      "imagem": "https://images.unsplash.com/photo-1581607393284-7e0447382b6e?w=400",
+      "resumo": "Como os barris de carvalho transformam a bebida.",
+      "conteudo": "Você já leu em um rótulo \"envelhecido em barris de carvalho\"? Essa etapa é fundamental para adicionar complexidade a muitos vinhos, especialmente os tintos mais encorpados e alguns brancos, como o nosso **Duna Dourada**.\n\nO carvalho faz mais do que apenas armazenar o vinho. A madeira, por ser porosa, permite uma micro-oxigenação que amacia os taninos, tornando o vinho mais redondo e aveludado na boca. Além disso, a madeira libera compostos que adicionam aromas e sabores de baunilha, coco, cravo, fumo e café, dependendo do tipo de carvalho (francês ou americano) e do nível de tosta do barril.\n\nÉ uma transformação que exige paciência e maestria do enólogo, resultando em vinhos mais ricos e com maior potencial de envelhecimento.",
+      "slug": "o-papel-do-carvalho"
+    }
+  ]
+}
