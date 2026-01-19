@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/img"
+public_folder: "assets/img"
+
+# Permite rodar no servidor local para teste (opcional)
+local_backend: true
+
+collections:
+  - name: "adega"
+    label: "Gerenciar Adega"
+    files:
+      - name: "estoque"
+        label: "Todos os Vinhos"
+        file: "dados/estoque.json" # O arquivo único que guarda tudo
+        fields:
+          - name: "produtos"
+            label: "Lista de Produtos"
+            widget: "list"
+            fields:
+              - {label: "ID (Ex: tin01)", name: "id", widget: "string"}
+              - {label: "Nome do Vinho", name: "nome", widget: "string"}
+              - {label: "Categoria", name: "categoria", widget: "select", options: ["tinto", "branco", "rose", "espumantes", "laranja", "importados", "semalcool", "cooler"]}
+              - {label: "Preço (Use ponto: 109.50)", name: "preco", widget: "number", value_type: "float"}
+              - {label: "Imagem", name: "imagem", widget: "image"}
+              - {label: "Descrição Curta", name: "descricao", widget: "text"}

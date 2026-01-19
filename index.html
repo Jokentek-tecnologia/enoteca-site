@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enoteca Mare Monti | O Encontro dos Terroirs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="liquid-background"></div>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Enoteca Mare Monti</a>
+            <ul class="nav-links">
+                <li><a href="index.html#inicio" data-key="navAnoteca">A Enoteca</a></li>
+                <li><a href="index.html#categorias-grid" data-key="navCarta">Nossa Carta</a></li>
+                <li><a href="index.html#blog" data-key="navBlog">Diário do Enólogo</a></li>
+                <li><a href="index.html#quemsomos" data-key="navQuemSomos">Quem Somos</a></li>
+                <li><a href="index.html#contato" data-key="navContato">Fale com o Sommelier</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="language-switcher">
+                    <img src="https://flagcdn.com/w20/br.png" alt="Português (Brasil)" data-lang="pt-br" class="active-lang"><img src="https://flagcdn.com/w20/pt.png" alt="Português (Portugal)" data-lang="pt-pt"><img src="https://flagcdn.com/w20/gb.png" alt="Inglês" data-lang="en"><img src="https://flagcdn.com/w20/it.png" alt="Italiano" data-lang="it"><img src="https://flagcdn.com/w20/es.png" alt="Espanhol" data-lang="es">
+                </div>
+                <div id="cart-icon" title="Ver Carrinho">🛒<span id="cart-count">0</span></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1 data-key="heroTitle">Do Mar à Montanha, uma Taça de Cada Vez.</h1>
+                <p data-key="heroSubtitle">Seja bem-vindo à nossa curadoria. Aqui, cada rótulo é uma ponte entre a brisa do oceano e a robustez dos picos.</p>
+                <a href="#categorias-grid" class="cta-button" data-key="heroButton">Explorar a Carta</a>
+            </div>
+        </section>
+        <section id="categorias-grid" class="section category-grid-section">
+            <h2 data-key="categoryGridTitle">Navegue por nossas categorias</h2>
+            <div class="category-cards-container">
+                <a href="tintos.html" class="category-card" style="background-color: #A43939;"><div class="card-text"><h3>Vinhos<br>Tintos</h3></div><img src="https://maremontienoteca.netlify.app/assets/img/tinto.png" alt="Tintos"></a>
+                <a href="brancos.html" class="category-card" style="background-color: #E9D391; color: #333;"><div class="card-text"><h3>Vinhos<br>Brancos</h3></div><img src="https://maremontienoteca.netlify.app/assets/img/branco.png" alt="Brancos"></a>
+                <a href="rose.html" class="category-card" style="background-color: #D88383;"><div class="card-text"><h3>Vinhos<br>Rosé</h3></div><img src="https://maremontienoteca.netlify.app/assets/img/rose.png" alt="Rosé"></a>
+                <a href="espumantes.html" class="category-card" style="background-color: #3E6D81;"><div class="card-text"><h3>Vinhos<br>Espumantes</h3></div><img src="https://maremontienoteca.netlify.app/assets/img/espumante.png" alt="Espumantes"></a>
+                <a href="laranja.html" class="category-card" style="background-color: #E58D4E;"><div class="card-text"><h3>Vinho<br>Laranja</h3></div><img src="https://maremontienoteca.netlify.app/assets/img/laranja.png" alt="Laranja"></a>
+                <a href="importados.html" class="category-card" style="background-color: #E6B953;"><div class="card-text"><h3>Vinhos<br>Importados</h3></div><img src="https://maremontienoteca.netlify.app/assets/img/importado.png" alt="Importados"></a>
+                <a href="semalcool.html" class="category-card" style="background-color: #6C5B7B;"><div class="card-text"><h3>No & Low<br>Álcool</h3></div><img src="https://maremontienoteca.netlify.app/assets/img/sem_alcool.png" alt="No & Low Álcool"></a>
+                <a href="cooler.html" class="category-card" style="background-color: #5E8C6A;"><div class="card-text"><h3>Cooler de<br>Vinho</h3></div><img src="https://maremontienoteca.netlify.app/assets/img/cooler.png" alt="Cooler de Vinho"></a>
+            </div>
+        </section>
+        <section id="quemsomos" class="section">
+            <h2 data-key="quemSomosTitle">Nossa História: O Encontro dos Terroirs</h2>
+            <div class="about-content">
+                <img src="https://images.unsplash.com/photo-1506377295352-e3a9f8c078e3?auto=format&fit=crop&w=1050&q=80" alt="Paisagem de vinhedo">
+                <div class="about-text">
+                    <p data-key="quemSomosP1">A Enoteca Mare Monti nasceu de uma paixão: os melhores vinhos carregam a identidade de onde nasceram. Seja pela brisa salina (Mare), seja pela intensidade das vinhas de altitude (Monti), cada garrafa é um mapa sensorial.</p>
+                    <p data-key="quemSomosP2">Nossa missão é ser o seu guia nesta jornada. Cada rótulo em nossa carta foi escolhido a dedo, não apenas pela qualidade, mas pela história que conta. Somos curadores de experiências.</p>
+                </div>
+            </div>
+        </section>
+        <section id="blog" class="section blog-section">
+            <h2 data-key="blogTitle">Diário do Enólogo</h2>
+            <div class="blog-grid">
+                <article class="blog-card hidden"><a href="post1.html"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400" alt="Homem analisando vinho"></a><div class="blog-content"><a href="post1.html"><h3 data-key="post1Title">A Arte da Harmonização</h3></a><p data-key="post1Excerpt">Descubra como combinar vinhos e pratos de forma memorável.</p><a href="post1.html" data-key="readMore">Ler Mais &rarr;</a></div></article>
+                <article class="blog-card hidden"><a href="post2.html"><img src="https://images.unsplash.com/photo-1510812431410-150b04a55b40?w=400" alt="Vinhedo ao por do sol"></a><div class="blog-content"><a href="post2.html"><h3 data-key="post2Title">O que é Terroir?</h3></a><p data-key="post2Excerpt">Entenda como o clima e solo criam vinhos únicos.</p><a href="post2.html" data-key="readMore">Ler Mais &rarr;</a></div></article>
+                <article class="blog-card hidden"><a href="post3.html"><img src="https://images.unsplash.com/photo-1581607393284-7e0447382b6e?w=400" alt="Adega com barris"></a><div class="blog-content"><a href="post3.html"><h3 data-key="post3Title">O Papel do Carvalho</h3></a><p data-key="post3Excerpt">Como os barris de carvalho transformam a bebida.</p><a href="post3.html" data-key="readMore">Ler Mais &rarr;</a></div></article>
+            </div>
+        </section>
+        <section id="contato" class="section contact-section">
+            <h2 data-key="contactTitle">Fale com o Sommelier</h2>
+            <p data-key="contactSubtitle">Busca um rótulo específico ou deseja uma recomendação? Estamos aqui para guiar sua escolha.</p>
+            <form class="contact-form"><input type="text" placeholder="Seu Nome" data-key="formName" required><input type="email" placeholder="Seu E-mail" data-key="formEmail" required><textarea placeholder="Sua mensagem ou dúvida" data-key="formMessage" rows="5" required></textarea><button type="submit" class="cta-button" data-key="formButton">Enviar</button></form>
+        </section>
+    </main>
+    <footer><p data-key="footerText">&copy; 2025 Enoteca Mare Monti. Onde os terroirs se encontram. Um projeto Jokentek.</p></footer>
+    
+    <div id="cart-overlay"></div>
+    <div id="cart-sidebar"><div class="cart-header"><h3 data-key="cartTitle">Sua Cesta</h3><button id="close-cart">&times;</button></div><div id="cart-items"></div><div class="cart-footer"><div class="cart-total"><span data-key="cartTotal">Total:</span><span id="cart-total-price">R$ 0,00</span></div><button id="checkout-button" class="cta-button" data-key="cartCheckout">Finalizar Compra</button></div></div>
+    
+    <div id="ai-sommelier-fab" title="Converse com nosso Sommelier de IA">🍷</div>
+    <div id="ai-sommelier-chat" class="hidden"><div class="chat-header"><h3 data-key="chatTitle">Sommelier de IA</h3><button id="close-chat-ai">&times;</button></div><div class="chat-messages"></div><form class="chat-input-form"><input type="text" id="chat-input" placeholder="Pergunte sobre vinhos..." data-key="chatPlaceholder"><button type="submit">➢</button></form></div>
+
+    <div id="checkout-modal-overlay"></div>
+    <div id="checkout-modal">
+        <div class="modal-header">
+            <h3>Finalizar Pedido via WhatsApp</h3>
+            <button id="close-modal">&times;</button>
+        </div>
+        <form id="checkout-form">
+            <p>Por favor, preencha seus dados para enviar o pedido. O pagamento será combinado diretamente pelo WhatsApp.</p>
+            <input type="text" id="checkout-name" placeholder="Seu nome completo" required>
+            <input type="text" id="checkout-address" placeholder="Endereço completo para entrega" required>
+            <textarea id="checkout-obs" placeholder="Alguma observação? (ponto de referência, etc.)" rows="3"></textarea>
+            <button type="submit" class="cta-button">Enviar Pedido para o WhatsApp</button>
+        </form>
+    </div>
+
+<div id="age-gate" class="age-gate-overlay">
+    <div class="age-gate-content">
+        <div class="age-icon">🍷</div>
+        <h2>Bem-vindo à Enoteca</h2>
+        <p>Para entrar em nossa curadoria de vinhos, você precisa ter idade legal para consumo de álcool.</p>
+        <p><strong>Você tem 18 anos ou mais?</strong></p>
+        <div class="age-buttons">
+            <button id="btn-yes" class="cta-button">Sim, tenho 18+</button>
+            <button id="btn-no" class="age-btn-secondary">Não, sou menor</button>
+        </div>
+    </div>
+</div>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+    <script src="script.js"></script>
+</body>
+</html>
