@@ -5,7 +5,7 @@
       "nome": "vinho teste",
       "categoria": "tinto",
       "imagem": "assets/img/corno-grande.png",
-      "descricao": "teste de descrição para ver como vai ficar no site em relação a quantidade de caracteres e espaçamento que vai aparecer no card que será criado, para isso estou escrevendo um pouco mais para ter uma noção.",
+      "descricao": "teste de descrição para ver como vai ficar no site em relação a quantidade de caracteres e espaçamento que vai aparecer no card que será criado, para isso estou escrevendo um pouco mais para ter uma noção",
       "preco": 105
     }
   ]
