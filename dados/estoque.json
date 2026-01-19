@@ -1,12 +1,12 @@
 {
   "produtos": [
     {
-      "id": "teste 01",
-      "nome": "vinho teste",
+      "id": "teste01",
+      "nome": "teste tinto",
       "categoria": "tinto",
       "imagem": "assets/img/corno-grande.png",
-      "descricao": "teste de descrição para ver como vai ficar no site em relação a quantidade de caracteres e espaçamento que vai aparecer no card que será criado, para isso estou escrevendo um pouco mais para ter uma noção",
-      "preco": 105
+      "descricao": "teste para ver como vai ficar a apresentação desse vinho na categoria e como aparecerá a descrição com mais de 100 caracteres, assim consigo mensurar se é possível ter uma descrição mais detalhada ou se precisa ser menor que 100 caracteres para uma apresentação mais limpa.",
+      "preco": 101
     }
   ]
 }
