@@ -1,53 +1,88 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- FUNÇÃO 1: CARREGA OS CARDS INFORMATIVOS (SLIDER) ---
+    // --- FUNÇÃO 1: CARREGA O BLOG NA HOME (NOVO) ---
+    async function carregarBlogHome() {
+        const container = document.querySelector('.blog-grid');
+        if (!container) return; // Só roda se tiver a área de blog na página
+
+        try {
+            // Busca o arquivo JSON do blog
+            const res = await fetch('dados/blog.json?t=' + new Date().getTime());
+            if (!res.ok) throw new Error("Sem posts");
+            
+            const dados = await res.json();
+            const posts = dados.artigos || [];
+
+            // Limpa o conteúdo fixo (se houver)
+            container.innerHTML = '';
+
+            if (posts.length === 0) {
+                container.innerHTML = '<p>Em breve novos artigos.</p>';
+                return;
+            }
+
+            // Pega os últimos 3 posts (ou todos) e cria os cards
+            posts.forEach(post => {
+                const article = document.createElement('article');
+                article.className = 'blog-card'; // Usa sua classe de estilo original
+                
+                // Ajuste de caminho da imagem
+                let imgPath = post.imagem;
+                if (imgPath && imgPath.startsWith('/')) imgPath = imgPath.substring(1);
+
+                article.innerHTML = `
+                    <a href="post.html?id=${post.slug}">
+                        <img src="${imgPath}" alt="${post.titulo}">
+                    </a>
+                    <div class="blog-content">
+                        <a href="post.html?id=${post.slug}">
+                            <h3>${post.titulo}</h3>
+                        </a>
+                        <p>${post.resumo}</p>
+                        <a href="post.html?id=${post.slug}" class="read-more">Ler Mais &rarr;</a>
+                    </div>
+                `;
+                container.appendChild(article);
+            });
+
+        } catch (erro) {
+            console.log("Blog ainda não configurado ou erro de leitura.");
+        }
+    }
+
+    // --- FUNÇÃO 2: CARREGA OS CARDS INFORMATIVOS (SLIDER) ---
     async function carregarCardsCategoria(categoriaPage) {
         const sliderContainer = document.querySelector('.info-slider');
         const cardContainer = document.querySelector('.info-card');
-        
         if (!sliderContainer || !cardContainer) return;
 
         try {
-            // Busca o JSON de configurações visuais
             const res = await fetch('dados/categorias.json?t=' + new Date().getTime());
-            if (!res.ok) return; // Se não existir arquivo, não faz nada
-            
+            if (!res.ok) return;
             const dados = await res.json();
             const configs = dados.configs || [];
-
-            // Encontra a configuração desta categoria específica
             const configCategoria = configs.find(c => c.id === categoriaPage);
 
             if (configCategoria && configCategoria.imagens && configCategoria.imagens.length > 0) {
-                // Limpa o slider (tira o texto de exemplo)
                 sliderContainer.innerHTML = '';
-                
-                // Adiciona as imagens que o cliente subiu
                 configCategoria.imagens.forEach(imgUrl => {
-                    // Ajuste de caminho caso venha com barra inicial
                     let src = imgUrl;
                     if (src.startsWith('/')) src = src.substring(1);
-
                     const img = document.createElement('img');
                     img.src = src;
                     img.alt = "Info " + categoriaPage;
                     sliderContainer.appendChild(img);
                 });
-
-                // Mostra o card (remove o hidden)
                 cardContainer.classList.remove('hidden');
             } else {
-                // Se não tiver imagens cadastradas para essa categoria, esconde o card
                 cardContainer.classList.add('hidden');
             }
-
         } catch (err) {
-            console.log("Card info: Nenhuma configuração encontrada ou erro de leitura.");
             cardContainer.classList.add('hidden');
         }
     }
 
-    // --- FUNÇÃO 2: CARREGA OS PRODUTOS ---
+    // --- FUNÇÃO 3: CARREGA OS PRODUTOS ---
     async function carregarProdutosCMS(categoriaAlvo) {
         const container = document.getElementById('grid-dinamica');
         if (!container) return;
@@ -55,31 +90,25 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const resposta = await fetch('dados/estoque.json?t=' + new Date().getTime());
             if (!resposta.ok) throw new Error("Estoque vazio");
-            
             const dados = await resposta.json();
             const lista = dados.produtos || [];
             const produtos = lista.filter(p => p.categoria === categoriaAlvo);
 
-            // Se não tem produtos, mostra aviso
             if (produtos.length === 0) {
                 const aviso = document.createElement('p');
                 aviso.style.gridColumn = "1/-1";
                 aviso.style.textAlign = "center";
-                aviso.style.padding = "20px";
                 aviso.innerText = "Em breve novidades nesta categoria.";
                 container.appendChild(aviso);
                 return;
             }
 
-            // Renderiza produtos
             produtos.forEach(vinho => {
                 const card = document.createElement('div');
                 card.classList.add('product-card');
-                
                 let imgPath = vinho.imagem;
                 if (imgPath && imgPath.startsWith('/')) imgPath = imgPath.substring(1);
 
-                // Atributos para o carrinho
                 card.setAttribute('data-id', vinho.id);
                 card.setAttribute('data-name', vinho.nome);
                 card.setAttribute('data-price', vinho.preco);
@@ -100,17 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 container.appendChild(card);
             });
-
-        } catch (erro) {
-            console.log("Aguardando cadastro de produtos...");
-        }
+        } catch (erro) { console.log("Aguardando produtos..."); }
     }
 
-    // --- IDENTIFICAÇÃO DA PÁGINA ---
-    // Define qual categoria carregar baseada na URL ou Título
+    // --- INICIALIZADORES ---
+    carregarBlogHome(); // Carrega o Blog na Home
+
     const path = window.location.pathname;
     let categoriaAtual = '';
-
     if (path.includes('tintos') || document.title.includes('Tintos')) categoriaAtual = 'tinto';
     else if (path.includes('brancos') || document.title.includes('Brancos')) categoriaAtual = 'branco';
     else if (path.includes('rose') || document.title.includes('Rosé')) categoriaAtual = 'rose';
@@ -121,23 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (path.includes('cooler') || document.title.includes('Cooler')) categoriaAtual = 'cooler';
 
     if (categoriaAtual) {
-        carregarCardsCategoria(categoriaAtual); // Carrega as imagens do topo
-        carregarProdutosCMS(categoriaAtual);    // Carrega os vinhos
+        carregarCardsCategoria(categoriaAtual);
+        carregarProdutosCMS(categoriaAtual);
     }
 
-    // --- RESTANTE DO CÓDIGO (CARRINHO, LOGIN, ETC) ---
-    // Mantendo a lógica de login do admin
+    // --- LÓGICA DE LOGIN ADMIN ---
     if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
             if (!user) {
-                window.netlifyIdentity.on("login", () => {
-                    document.location.href = "/admin/";
-                });
+                window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
             }
         });
     }
 
-    // Código do Carrinho (Resumido para não estourar limite, mas mantenha o seu original abaixo daqui)
+    // --- CARRINHO (Mantido Original) ---
     const cartIcon = document.getElementById('cart-icon');
     const cartSidebar = document.getElementById('cart-sidebar');
     const cartOverlay = document.getElementById('cart-overlay');
@@ -170,11 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('mareMontiCart', JSON.stringify(cart));
     }
 
-    function toggleCart() { 
-        if(cartSidebar) { cartSidebar.classList.toggle('open'); cartOverlay.classList.toggle('open'); }
-    }
+    function toggleCart() { if(cartSidebar) { cartSidebar.classList.toggle('open'); cartOverlay.classList.toggle('open'); } }
 
-    // Event Listeners Carrinho
     if(cartIcon) cartIcon.addEventListener('click', toggleCart);
     if(closeCartBtn) closeCartBtn.addEventListener('click', toggleCart);
     if(cartOverlay) cartOverlay.addEventListener('click', toggleCart);
@@ -194,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Checkout Modal
     if(checkoutButton) checkoutButton.addEventListener('click', () => { toggleCart(); if(checkoutModal) checkoutModal.classList.add('open'); if(checkoutOverlay) checkoutOverlay.classList.add('open'); });
     if(closeModalBtn) closeModalBtn.addEventListener('click', () => { checkoutModal.classList.remove('open'); checkoutOverlay.classList.remove('open'); });
     if(checkoutForm) checkoutForm.addEventListener('submit', e => {
