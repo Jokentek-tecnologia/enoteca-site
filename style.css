@@ -314,45 +314,69 @@ footer { padding: 3rem 5%; text-align: center; background: #000; font-size: 0.9r
 
 }
 
-/* --- AJUSTES FINAIS PARA DESKTOP --- */
+/* --- CORREÇÃO FINAL PARA DESKTOP (SEM QUADROS, SEM SUMIR PRODUTOS) --- */
 @media (min-width: 768px) {
-    
-    /* 1. Controla o Card Informativo (Slider) para não ficar gigante */
-    .info-card {
-        grid-column: 1 / -1; /* Faz ele ocupar a linha inteira no topo */
-        max-width: 800px;    /* Largura máxima permitida */
-        height: 450px;       /* Altura fixa para não esticar verticalmente */
-        margin: 0 auto 40px auto; /* Centraliza e dá espaço embaixo */
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
 
-    /* Garante que a imagem dentro do slider fique bonita sem cortar */
-    .info-slider img {
-        object-fit: contain; /* Mostra a imagem inteira (bom para textos/infográficos) */
-        background-color: #1a0505; /* Fundo escuro sutil para preencher laterais se sobrar */
-    }
-
-    /* 2. Organiza a Grade de Produtos */
+    /* 1. O Container Principal */
     .products-grid {
-        display: grid;
-        /* Cria colunas que não ficam nem muito pequenas, nem gigantes */
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 30px;
-        max-width: 1200px; /* Limita a largura total da loja na tela */
-        margin: 0 auto;    /* Centraliza a grade na tela */
+        /* Usamos Flexbox para garantir que nada suma. O que não cabe, desce. */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centraliza tudo */
+        gap: 30px; /* Espaço entre os itens */
+        max-width: 1200px;
+        margin: 0 auto;
         padding: 0 20px;
     }
 
-    /* 3. Ajusta o tamanho da garrafa dentro do card */
-    .product-card {
-        max-width: 300px; /* Trava a largura máxima do cartão do vinho */
-        margin: 0 auto;   /* Centraliza se a coluna for maior */
+    /* 2. O Card de Informação (Slider) */
+    .info-card {
+        /* Força ele a ocupar a largura total da linha (100%) */
+        flex: 0 0 100%;
+        width: 100%;
+        
+        /* Removemos a altura fixa e o fundo para tirar o "quadro feio" */
+        height: auto; 
+        background-color: transparent; 
+        box-shadow: none; /* Remove a sombra se preferir um visual limpo */
+        border: none;
+        
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
     }
 
+    .info-slider {
+        /* Centraliza o conteúdo do slider */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 3. A Imagem dentro do Slider */
+    .info-slider img {
+        /* Limita a altura para não ficar gigante, mas mantém a proporção */
+        height: auto;
+        max-height: 500px; /* Altura máxima permitida no PC */
+        width: auto;       /* Largura se ajusta sozinha */
+        max-width: 100%;   /* Não deixa estourar a tela */
+        
+        object-fit: contain; /* Garante que a imagem apareça inteira */
+        border-radius: 10px; /* Borda levemente arredondada na imagem */
+    }
+
+    /* 4. Os Cards de Vinho (Produtos) */
+    .product-card {
+        /* Define um tamanho fixo e elegante para os vinhos */
+        flex: 0 0 300px; /* Largura fixa de 300px */
+        width: 300px;
+        margin: 0; /* Remove margens automáticas que atrapalham */
+    }
+
+    /* Garante que a imagem do vinho fique bonita */
     .product-card .card-front img {
-        height: 300px; /* Altura padrão para as garrafas */
+        height: 350px;
         object-fit: contain;
-        padding: 15px;
+        padding: 20px;
     }
 }
