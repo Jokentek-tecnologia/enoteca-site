@@ -5,63 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinhos Tintos - Enoteca Mare Monti</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="liquid-background"></div>
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">Enoteca Mare Monti</a>
-            <ul class="nav-links">
-                <li><a href="index.html#inicio" data-key="navAnoteca">A Enoteca</a></li>
-                <li><a href="index.html#categorias-grid" data-key="navCarta">Nossa Carta</a></li>
-                <li><a href="index.html#blog" data-key="navBlog">Diário do Enólogo</a></li>
-                <li><a href="index.html#quemsomos" data-key="navQuemSomos">Quem Somos</a></li>
-                <li><a href="index.html#contato" data-key="navContato">Fale com o Sommelier</a></li>
-            </ul>
-            <div class="nav-icons">
-                <div class="language-switcher">
-                    <img src="https://flagcdn.com/w20/br.png" alt="Português (Brasil)" data-lang="pt-br" class="active-lang"><img src="https://flagcdn.com/w20/pt.png" alt="Português (Portugal)" data-lang="pt-pt"><img src="https://flagcdn.com/w20/gb.png" alt="Inglês" data-lang="en"><img src="https://flagcdn.com/w20/it.png" alt="Italiano" data-lang="it"><img src="https://flagcdn.com/w20/es.png" alt="Espanhol" data-lang="es">
-                </div>
-                <div id="cart-icon" title="Ver Carrinho">🛒<span id="cart-count">0</span></div>
-            </div>
-        </nav>
-    </header>
+    <header><nav class="navbar"><a href="index.html" class="logo">Enoteca Mare Monti</a><ul class="nav-links"><li><a href="index.html#inicio" data-key="navAnoteca">A Enoteca</a></li><li><a href="index.html#categorias-grid" data-key="navCarta">Nossa Carta</a></li><li><a href="index.html#blog" data-key="navBlog">Diário do Enólogo</a></li><li><a href="index.html#quemsomos" data-key="navQuemSomos">Quem Somos</a></li><li><a href="index.html#contato" data-key="navContato">Fale com o Sommelier</a></li></ul><div class="nav-icons"><div class="language-switcher"><img src="https://flagcdn.com/w20/br.png" data-lang="pt-br" class="active-lang"><img src="https://flagcdn.com/w20/pt.png" data-lang="pt-pt"><img src="https://flagcdn.com/w20/gb.png" data-lang="en"><img src="https://flagcdn.com/w20/it.png" data-lang="it"><img src="https://flagcdn.com/w20/es.png" data-lang="es"></div><div id="cart-icon">🛒<span id="cart-count">0</span></div></div></nav></header>
     <main>
-
         <section class="section">
-    <h2 data-key="tintosTitle">Vinhos Tintos</h2>
-    <div class="products-grid" id="grid-dinamica">
-    
-        <div class="info-card hidden">
-            </div>
+            <h2 data-key="tintosTitle">Vinhos Tintos</h2> <div class="products-grid" id="grid-dinamica">
+                
+                <div class="info-card hidden">
+                    <div class="info-slider">
+                        <p style="color:white; padding:20px;">(Coloque suas imagens explicativas aqui)</p>
+                    </div>
+                </div>
 
-        </div>
-	</section>
-
+                </div>
+        </section>
     </main>
-    <footer><p data-key="footerText">&copy; 2025 Enoteca Mare Monti. Onde os terroirs se encontram. Um projeto Jokentek.</p></footer>
-    
-    <div id="cart-overlay"></div>
-    <div id="cart-sidebar"><div class="cart-header"><h3 data-key="cartTitle">Sua Cesta</h3><button id="close-cart">&times;</button></div><div id="cart-items"></div><div class="cart-footer"><div class="cart-total"><span data-key="cartTotal">Total:</span><span id="cart-total-price">R$ 0,00</span></div><button id="checkout-button" class="cta-button" data-key="cartCheckout">Finalizar Compra</button></div></div>
-    
-    <div id="ai-sommelier-fab" title="Converse com nosso Sommelier de IA">🍷</div>
-    <div id="ai-sommelier-chat" class="hidden"><div class="chat-header"><h3 data-key="chatTitle">Sommelier de IA</h3><button id="close-chat-ai">&times;</button></div><div class="chat-messages"></div><form class="chat-input-form"><input type="text" id="chat-input" placeholder="Pergunte sobre vinhos..." data-key="chatPlaceholder"><button type="submit">➢</button></form></div>
-
-    <div id="checkout-modal-overlay"></div>
-    <div id="checkout-modal">
-        <div class="modal-header"><h3>Finalizar Pedido via WhatsApp</h3><button id="close-modal">&times;</button></div>
-        <form id="checkout-form">
-            <p>Por favor, preencha seus dados para enviar o pedido. O pagamento será combinado diretamente pelo WhatsApp.</p>
-            <input type="text" id="checkout-name" placeholder="Seu nome completo" required>
-            <input type="text" id="checkout-address" placeholder="Endereço completo para entrega" required>
-            <textarea id="checkout-obs" placeholder="Alguma observação? (ponto de referência, etc.)" rows="3"></textarea>
-            <button type="submit" class="cta-button">Enviar Pedido para o WhatsApp</button>
-        </form>
-    </div>
-
+    <footer><p data-key="footerText">&copy; 2025 Enoteca Mare Monti. Um projeto Jokentek.</p></footer>
+    <div id="cart-overlay"></div><div id="cart-sidebar"><div class="cart-header"><h3 data-key="cartTitle">Sua Cesta</h3><button id="close-cart">&times;</button></div><div id="cart-items"></div><div class="cart-footer"><div class="cart-total"><span data-key="cartTotal">Total:</span><span id="cart-total-price">R$ 0,00</span></div><button id="checkout-button" class="cta-button" data-key="cartCheckout">Finalizar Compra</button></div></div>
+    <div id="checkout-modal-overlay"></div><div id="checkout-modal"><div class="modal-header"><h3>Finalizar Pedido via WhatsApp</h3><button id="close-modal">&times;</button></div><form id="checkout-form"><p>Preencha para enviar ao WhatsApp.</p><input type="text" id="checkout-name" placeholder="Nome" required><input type="text" id="checkout-address" placeholder="Endereço" required><textarea id="checkout-obs" placeholder="Observações"></textarea><button type="submit" class="cta-button">Enviar Pedido</button></form></div>
     <script src="script.js"></script>
 </body>
 </html>
