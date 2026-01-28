@@ -1,3 +1,12 @@
 {
-  "produtos": []
+  "produtos": [
+    {
+      "id": "VINHO TINTO",
+      "nome": "PINOT NOIR ",
+      "categoria": "tinto",
+      "imagem": "assets/img/pinot-noir.png",
+      "preco": 58.5,
+      "descricao": "TEOR ALCOÓLICO DE 12%\n"
+    }
+  ]
 }
