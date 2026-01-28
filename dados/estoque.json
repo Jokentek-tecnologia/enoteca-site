@@ -15,6 +15,14 @@
       "nome": "MERLOT ALDEGHERI",
       "preco": 54.9,
       "descricao": "TEOR ALCOÓLICO DE 12%\n\nUVA MERLOT\n\nTEMPERATURA DE CONSUMO 12* A 14*\n\nVINHO FINO TINTO SECO MERLOT \n\n650ML "
+    },
+    {
+      "categoria": "branco",
+      "id": "VINHO BRANCO ",
+      "nome": "ALLEGRO LORENA ",
+      "descricao": "TEOR ALCOÓLICO DE 11,5%\n\nVINHO DE MESA BRANCO DEMI-SEC\n\nTEMPERATURA DE CONSUMO DE 6* A 8*\n\nUVA LORENA ",
+      "preco": 45.5,
+      "imagem": "assets/img/whatsapp-image-2026-01-28-at-13.13.31.jpeg"
     }
   ]
 }
