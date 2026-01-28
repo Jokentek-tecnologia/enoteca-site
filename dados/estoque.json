@@ -7,6 +7,14 @@
       "imagem": "assets/img/pinot-noir.png",
       "preco": 58.5,
       "descricao": "TEOR ALCOÓLICO DE 12%\n"
+    },
+    {
+      "categoria": "tinto",
+      "imagem": "assets/img/merlot-aldegheri.png",
+      "id": "VINHO TINTO",
+      "nome": "MERLOT ALDEGHERI",
+      "preco": 54.9,
+      "descricao": "TEOR ALCOÓLICO DE 12%\n\nUVA MERLOT\n\nTEMPERATURA DE CONSUMO 12* A 14*\n\nVINHO FINO TINTO SECO MERLOT \n\n650ML "
     }
   ]
 }
